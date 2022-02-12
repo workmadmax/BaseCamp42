@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 14:54:00 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/10 14:56:44 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/11 01:09:14 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/11 01:14:08 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int n;
-
-	n = 0;
-	while (str[n] != 0)
-		++n;
-	return (n);
+	int	swap;
+	int i;
+	
+	i = 0;
+	while (i < (size - 1))
+	{
+		if (tab[i] > tab[i + 1])
+		{
+			swap = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = swap;
+			i++;
+		}
+		else
+		{
+			i++;
+		}
+	}
 }
