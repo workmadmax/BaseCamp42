@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 01:09:14 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/13 20:11:37 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/13 00:37:13 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/13 01:01:43 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_sort_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	swap;
 	int i;
 	
 	i = 0;
-	while (i < (size - 1))
+	while (src[i] != '\0')
 	{
-		if (tab[i] > tab[i + 1])
-		{
-			swap = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = swap;
-			i++;
-		}
-		else
-		{
-			i++;
-		}
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

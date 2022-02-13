@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/11 01:09:14 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/13 20:11:37 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/13 19:40:17 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/13 20:27:17 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_sort_int_tab(int *tab, int size)
+
+int ft_str_is_alpha(char *str)
 {
-	int	swap;
 	int i;
-	
+
 	i = 0;
-	while (i < (size - 1))
+	if (str[i] == '\0')
+		return (1);
+	while (str[i] !=0)
 	{
-		if (tab[i] > tab[i + 1])
-		{
-			swap = tab[i];
-			tab[i] = tab[i + 1];
-			tab[i + 1] = swap;
+		if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
 			i++;
-		}
 		else
-		{
-			i++;
-		}
+			return (0);
 	}
+	return (1);
 }
