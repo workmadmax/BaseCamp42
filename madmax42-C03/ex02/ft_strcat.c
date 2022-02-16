@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:18:11 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/15 01:58:18 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/15 19:35:13 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/15 19:37:50 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char *ft_strupcase(char *str)
+char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
+	int	n;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (dest[i] != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
 		i++;
 	}
-	return (str);
+	n = 0;
+	while (src[n] != '\0')
+	{
+		dest[i] = src[n];
+		i++;
+		n++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

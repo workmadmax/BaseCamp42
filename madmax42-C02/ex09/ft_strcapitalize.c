@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 23:53:12 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/14 00:19:02 by mdouglas         ###   ########.fr       */
+/*   Updated: 2022/02/14 23:23:28 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ char	*ft_strcapitalize(char *str)
 {
 	int	i;
 	int	n;
+	
+	i = 0;
+	n = 1;
 	ft_strlowcase(str);
 	while (str[i] != '\0')
 	{

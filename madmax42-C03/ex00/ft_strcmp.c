@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/13 23:18:11 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/15 01:58:18 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/15 18:23:31 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/15 19:06:37 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-char *ft_strupcase(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-
+	int i;
+	
 	i = 0;
-	while (str[i] != '\0')
+	while (s1[i] == s2[i])
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
+		if (s1[i] == '\0' && s2[i] == '\0')
+			return (0);
 		i++;
 	}
-	return (str);
+	return (s1[i] - s2[i]);
 }

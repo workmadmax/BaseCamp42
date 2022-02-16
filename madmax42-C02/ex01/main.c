@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char ft_strncpy(char *dest, char *src, unsigned int n);
+char *ft_strncpy(char *dest, char *src, unsigned int n);
 
 int main()
 {
@@ -13,5 +13,5 @@ int main()
 	// printf("\n%s", ft_strncpy(dest, src, 5));
 	// printf("\n%s", strncpy(dest1, src, 5));
 	// printf("\n%s", ft_strncpy(dest, src, 7));
-	printf("\n%s", strncpy(dest1, src, 1));
+	printf("%s\n", strncpy(dest, src, 4));
 }

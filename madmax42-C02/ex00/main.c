@@ -10,5 +10,5 @@ int main()
 
 	printf("BEFORE : %s\n", dest);
 
-	printf("After %s ", ft_strcpy(dest, src));
+	printf("After : %s\n ", ft_strcpy(dest, src));
 }
