@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:35:13 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/16 23:56:23 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/16 20:37:47 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/16 20:48:53 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+char *ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	n;
+	int i;
+	int n;
 
 	i = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
 	n = 0;
-	while (src[n] != '\0')
+	if (to_find[n] == '\0')
+		return (str);
+	while (str[i] != '\0')
 	{
-		dest[i] = src[n];
+		while (str[i + n] == to_find[n] && str[i + n] != '\0')
+			n++;
+		if (to_find[n] == '\0')
+			return (str + i);
 		i++;
-		n++;
+		n = 0;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }

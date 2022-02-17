@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 19:35:13 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/16 23:56:23 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/16 20:08:29 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/16 20:33:05 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, char *src)
+char *ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	n;
-
+	unsigned int	i;
+	unsigned int	n;
+	
 	i = 0;
+	n = 0;
 	while (dest[i] != '\0')
 	{
 		i++;
 	}
-	n = 0;
-	while (src[n] != '\0')
+	while (n < nb && src[n] != '\0')
 	{
-		dest[i] = src[n];
-		i++;
+		dest[i + n] = src[n];
 		n++;
 	}
-	dest[i] = '\0';
+	dest[i + n] = '\0';
 	return (dest);
 }
