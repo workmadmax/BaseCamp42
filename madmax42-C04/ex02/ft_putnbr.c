@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 20:37:47 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/17 23:37:42 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/17 14:48:32 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/17 22:38:54 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strstr(char *str, char *to_find)
-{
-	int i;
-	int n;
+#include <unistd.h>
 
-	i = 0;
-	n = 0;
-	if (to_find[n] == '\0')
-		return (str);
-	while (str[i] != '\0')
+void	ft_putnbr(int nb)
+{
+	char	c;
+
+	if (nb == -2147483648)
 	{
-		while (str[i + n] == to_find[n] && str[i + n] != '\0')
-			n++;
-		if (to_find[n] == '\0')
-			return (str + i);
-		i++;
-		n = 0;
+		write(1, "-2147483648", 11);
 	}
-	return (0);
+	if (nb < 0)
+	{
+		nb = (nb * -1);
+		write (1, "-", 1);
+	}
+	if (nb < 10)
+	{
+		c = nb + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }
 
-#include <stdio.h>
-
-int main()
-{
-	char str[] = "Palmeiras Campeao";
-	char find[] = "meiras";
-
-	printf("%s", ft_strstr(str, find));
-}
+// int main()
+// {
+// 	ft_putnbr(2147483647);
+// }

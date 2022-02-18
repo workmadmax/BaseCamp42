@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 20:37:47 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/17 23:37:42 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/17 13:21:04 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/17 22:46:11 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strstr(char *str, char *to_find)
+void	ft_putstr(char *str)
 {
-	int i;
-	int n;
+	int	i;
 
 	i = 0;
-	n = 0;
-	if (to_find[n] == '\0')
-		return (str);
 	while (str[i] != '\0')
 	{
-		while (str[i + n] == to_find[n] && str[i + n] != '\0')
-			n++;
-		if (to_find[n] == '\0')
-			return (str + i);
+		write(1, &str[i], 1);
 		i++;
-		n = 0;
 	}
-	return (0);
 }
-
-#include <stdio.h>
 
 int main()
 {
-	char str[] = "Palmeiras Campeao";
-	char find[] = "meiras";
-
-	printf("%s", ft_strstr(str, find));
+	ft_putstr("Palmeiras");
 }
