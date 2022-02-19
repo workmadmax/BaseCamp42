@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 16:36:35 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/18 02:55:42 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/18 16:48:49 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/18 23:40:54 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int					i;
-	int					sign;
-	unsigned int		res;
+#include <unistd.h>
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+int	main(int argc, char *argv[])
+{
+	int	row;
+
+	row = 0;
+	argc = argc + 1;
+	while (argv[0][row] != '\0')
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		write(1, &argv[0][row], 1);
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res *= 10;
-		res += str[i] - '0';
-		i++;
-	}
-	return (res * sign);
+	write (1, "\n", 1);
 }

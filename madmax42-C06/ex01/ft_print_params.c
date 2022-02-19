@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 16:36:35 by mdouglas          #+#    #+#             */
-/*   Updated: 2022/02/18 02:55:42 by mdouglas         ###   ########.fr       */
+/*   Created: 2022/02/18 23:35:42 by mdouglas          #+#    #+#             */
+/*   Updated: 2022/02/18 23:42:12 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	main(int argc, char *argv[])
 {
-	int					i;
-	int					sign;
-	unsigned int		res;
+	int	col;
+	int row;
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+	col = 1;
+	while (col < argc)
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		row = 0;
+		while (argv[col][row] != '\0')
+		{
+			write(1, &argv[col][row], 1);
+			row++;
+		}
+		write(1, "\n", 1);
+		row++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res *= 10;
-		res += str[i] - '0';
-		i++;
-	}
-	return (res * sign);
 }
