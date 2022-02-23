@@ -1,17 +1,24 @@
 int ft_is_prime(int nb)
 {
     int i;
-    int div;
 
-    i = 1;
-    while (i <= nb)
-        i++;
-    while (i <= (nb / 2))
+    i = 2;
+    while (i <= nb / 2)
     {
-        if(!(nb % i))
+        if (nb % i == 0)
             return (0);
-        else
-            i += 1;
+        i++;
     }
-    return (1);
+    return (nb > 1);
+}
+
+#include <stdio.h>
+
+int main()
+{
+    int n;
+
+    n = 11;
+    
+    printf("%d ", ft_is_prime(n));
 }
